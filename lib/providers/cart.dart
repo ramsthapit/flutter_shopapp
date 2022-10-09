@@ -6,18 +6,23 @@ class CartItem {
   final int quantity;
   final double price;
 
-  CartItem(
-      {required this.id,
-      required this.title,
-      required this.quantity,
-      required this.price});
+  CartItem({
+    required this.id,
+    required this.title,
+    required this.quantity,
+    required this.price,
+  });
 }
 
 class Cart with ChangeNotifier {
-  Map<String, CartItem> _items = {};
+  final Map<String, CartItem> _items = {};
 
   Map<String, CartItem> get items {
     return {..._items};
+  }
+
+  int get itemCount {
+    return _items.length;
   }
 
   void addItem(String productId, double price, String title) {
@@ -28,8 +33,8 @@ class Cart with ChangeNotifier {
           CartItem(
             id: existingCartItem.id, 
             title: existingCartItem.title, 
+            price: existingCartItem.price,
             quantity: existingCartItem.quantity +1, 
-            price: existingCartItem.price
           )
       );
     
