@@ -4,17 +4,7 @@ import 'package:shop_app/providers/product.dart';
 import 'package:shop_app/screens/product_detail_screen.dart';
 
 class ProductItem extends StatelessWidget {
-  // ProductItem({Key? key}) : super(key: key);
-
-  final String id;
-  final String title;
-  final String imageUrl;
-
-  ProductItem(
-    this.id,
-    this.title,
-    this.imageUrl,
-  );
+  const ProductItem({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +40,7 @@ class ProductItem extends StatelessWidget {
                 arguments: product.id);
           },
           child: Image.network(
-            imageUrl,
+            product.imageUrl,
             fit: BoxFit.cover,
           ),
         )
