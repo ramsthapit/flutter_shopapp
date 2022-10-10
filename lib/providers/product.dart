@@ -10,11 +10,11 @@ class Product with ChangeNotifier {
 
   Product({
     required this.id,
+    required this.title,
     required this.description,
+    required this.price,
     required this.imageUrl,
     this.isFavorite = false,
-    required this.price,
-    required this.title,
   });
 
   void toggleFavoriteStatus() {
